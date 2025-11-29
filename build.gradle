@@ -48,8 +48,10 @@ subprojects {
     }
 
     // Configure the Java compilation output
-    tasks.withType(JavaCompile) {
-        options.encoding = 'UTF-8'
+    tasks.withType(JavaCompile).tap {
+        configureEach {
+            options.encoding = 'UTF-8'
+        }
     }
 }
 
