@@ -1,4 +1,4 @@
-rootProject.name = 'aimailroutingsystem'
+rootProject.name = 'AI-Mail-Routing-System'
 
 
 include 'common'
