@@ -1,0 +1,6 @@
+rootProject.name = 'aimailroutingsystem'
+
+
+include 'common'
+include 'ai-routing-service'
+include 'ticket-service'

@@ -1,0 +1,98 @@
+
+
+
+buildscript {
+    ext {
+        // Define common versions
+        springBootVersion = '4.0.0'
+        springDependencyManagementVersion = '1.1.7'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        // Plugin to manage Spring Boot dependencies
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        // Plugin to manage other dependencies versions
+        classpath "io.spring.gradle:dependency-management-plugin:${springDependencyManagementVersion}"
+    }
+}
+
+// Apply core plugins
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.springframework.boot'
+
+    group = 'com.yogish'
+    version = '0.0.1-SNAPSHOT'
+    //sourceCompatibility = '17'
+
+    repositories {
+        mavenCentral()
+    }
+
+    // Common dependencies for all projects (e.g., test dependencies)
+    dependencies {
+      //  implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+       // implementation 'org.springframework.boot:spring-boot-starter-kafka'
+        implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+
+//        compileOnly 'org.projectlombok:lombok'
+//        annotationProcessor 'org.projectlombok:lombok'
+//        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//        //testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
+//        testImplementation 'org.springframework.boot:spring-boot-starter-kafka-test'
+//        testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
+//        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    }
+
+    // Configure the Java compilation output
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+}
+
+
+
+//plugins {
+//	id 'java'
+//	id 'org.springframework.boot' version '4.0.0'
+//	id 'io.spring.dependency-management' version '1.1.7'
+//}
+//
+//group = 'com.yogish'
+//version = '0.0.1-SNAPSHOT'
+//description = 'AI-Email-Routing-System'
+//
+//java {
+//	toolchain {
+//		languageVersion = JavaLanguageVersion.of(17)
+//	}
+//}
+//
+//configurations {
+//	compileOnly {
+//		extendsFrom annotationProcessor
+//	}
+//}
+//
+//repositories {
+//	mavenCentral()
+//}
+//
+//dependencies {
+//	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//	implementation 'org.springframework.boot:spring-boot-starter-kafka'
+//	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+//	compileOnly 'org.projectlombok:lombok'
+//	annotationProcessor 'org.projectlombok:lombok'
+//	testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
+//	testImplementation 'org.springframework.boot:spring-boot-starter-kafka-test'
+//	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
+//	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+//}
+//
+//tasks.named('test') {
+//	useJUnitPlatform()
+//}
