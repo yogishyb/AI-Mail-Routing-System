@@ -1,6 +1,8 @@
+
 rootProject.name = 'AI-Mail-Routing-System'
 
 
 include 'common'
 include 'ai-routing-service'
 include 'ticket-service'
+include 'email-ingestion-service'
