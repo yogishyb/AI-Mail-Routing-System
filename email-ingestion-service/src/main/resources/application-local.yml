@@ -1,0 +1,11 @@
+#google:
+#  oauth:
+#    client-id: not needed
+#    client-secret: not needed
+gmail:
+  app:
+    username: xxxxxxxxxxxxxx@gmail.com
+    password: xxxxxxxxxxxxx
+
+
+
