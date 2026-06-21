@@ -1,38 +1,11 @@
-//plugins {
-//    id 'java'
-//}
-//
-//group = 'org.yogish.airoutingservice'
-//version = 'unspecified'
-//
-//repositories {
-//    mavenCentral()
-//}
-//
-//dependencies {
-//    testImplementation platform('org.junit:junit-bom:5.10.0')
-//    testImplementation 'org.junit.jupiter:junit-jupiter'
-//    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-//}
-//
-//test {
-//    useJUnitPlatform()
-//}
-
-
-// Apply Spring Boot and Java plugins
-apply plugin: 'org.springframework.boot'
-
 dependencies {
-    // Include the shared library module
     implementation project(':common')
 
     // Spring Boot Starters
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.kafka:spring-kafka'
 
-    // AI-specific dependencies (example)
-    // implementation 'dev.langchain4j:langchain4j-spring-boot-starter:0.29.1'
+
 }
 
 // Standard Spring Boot Jar configuration
