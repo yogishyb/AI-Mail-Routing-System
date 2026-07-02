@@ -9,6 +9,11 @@ gmail:
       gmailId: xxxxxxx@gmail.com
       password: xxxxxxxx
       host: imap.gmail.com
+    mail-produce:
+      gmailId: xxxxx@gmail.com
+      password: xxxxx
+      host: imap.gmail.com
+
 
 spring:
   kafka:
