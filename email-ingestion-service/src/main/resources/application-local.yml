@@ -1,11 +1,24 @@
-#google:
-#  oauth:
-#    client-id: not needed
-#    client-secret: not needed
+google:
+  oauth:
+    client-id: 658580109389-t1e4kog7vun1enhiaoa9h1d7klooied0.apps.googleusercontent.com
+    client-secret: OCSPX-ICauawez_JTkPQ08i5N4YWARvZSg
+
 gmail:
-  app:
-    username: xxxxxxxxxxxxxx@gmail.com
-    password: xxxxxxxxxxxxx
+  session:
+    app:
+      gmailId: xxxxxxx@gmail.com
+      password: xxxxxxxx
+      host: imap.gmail.com
+    mail-produce:
+      gmailId: xxxxx@gmail.com
+      password: xxxxx
+      host: imap.gmail.com
 
 
-
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+#      value-serializer: org.apache.kafka.common.serialization.StringSerializer

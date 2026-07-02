@@ -1,93 +1,45 @@
 services:
-  # ----------------------------
-  # MESSAGING INFRASTRUCTURE
-  # ----------------------------
-  zookeeper:
-    image: confluentinc/cp-zookeeper:7.5.0
-    hostname: zookeeper
-    container_name: zookeeper
-    ports:
-      - "2181:2181"
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
-      ZOOKEEPER_TICK_TIME: 2000
-    networks:
-      - app-tier
-
-  kafka:
-    image: confluentinc/cp-kafka:7.5.0
-    container_name: kafka
-    depends_on:
-      - zookeeper
+  kafka1:
+    image: apache/kafka:latest
+    container_name: kafka1
+    hostname: kafka1
     ports:
       - "9092:9092"
     environment:
-      KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://kafka:29092
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
-      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-    networks:
-      - app-tier
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
 
-  # Web UI to view Kafka Topics (Access at http://localhost:8080)
-  kafka-ui:
-    image: provectuslabs/kafka-ui:latest
-    container_name: kafka-ui
-    depends_on:
-      - kafka
+      KAFKA_LISTENERS: INTERNAL://:19092,EXTERNAL://:9092,CONTROLLER://:29093
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka1:19092,EXTERNAL://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka1:29093,2@kafka2:29093
+
+      CLUSTER_ID: MkU3OEVBNTcwNTJENDM2Qk
+
+  kafka2:
+    image: apache/kafka:latest
+    container_name: kafka2
+    hostname: kafka2
     ports:
-      - "8090:8090"
+      - "9093:9092"
+    environment:
+      KAFKA_NODE_ID: 2
+      KAFKA_PROCESS_ROLES: broker,controller
+
+      KAFKA_LISTENERS: INTERNAL://:19092,EXTERNAL://:9092,CONTROLLER://:29093
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka2:19092,EXTERNAL://localhost:9093
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka1:29093,2@kafka2:29093
+      CLUSTER_ID: MkU3OEVBNTcwNTJENDM2Qk
+  kafka-ui:
+    image: kafbat/kafka-ui:latest
+    ports:
+      - "8080:8080"
     environment:
       KAFKA_CLUSTERS_0_NAME: local
-      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
-    networks:
-      - app-tier
-
-  # ----------------------------
-  # DATABASE INFRASTRUCTURE
-  # ----------------------------
-  postgres:
-    image: postgres:16
-    container_name: postgres
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: my@test@Pass12
-      POSTGRES_DB: ticket_db
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    networks:
-      - app-tier
-
-  # Web UI to view Database (Access at http://localhost:8978)
-  cloudbeaver:
-    image: dbeaver/cloudbeaver:latest
-    container_name: cloudbeaver
-    depends_on:
-      - postgres
-    ports:
-      # Default CloudBeaver web port
-      - "8978:8978"
-    environment:
-      # Optional: set initial config for Postgres connection (Internal Network)
-      CLOUDBEAVER_DRIVER: postgres-jdbc
-      CLOUDBEAVER_URL: jdbc:postgresql://postgres:5432/ticket_db
-      CLOUDBEAVER_USER: admin
-      CLOUDBEAVER_PASSWORD: my@test@Pass12
-    volumes:
-      # Recommended for persistence of CloudBeaver settings
-      - cloudbeaver_workspace:/opt/cloudbeaver/workspace
-    networks:
-      - app-tier
-
-networks:
-  app-tier:
-    driver: bridge
-
-volumes:
-  postgres_data:
-  cloudbeaver_workspace: # New volume for CloudBeaver data
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka1:19092,kafka2:19092

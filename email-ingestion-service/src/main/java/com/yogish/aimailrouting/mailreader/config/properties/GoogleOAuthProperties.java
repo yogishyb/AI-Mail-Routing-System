@@ -1,4 +1,4 @@
-package com.yogish.aimailrouting.mailreader.config;
+package com.yogish.aimailrouting.mailreader.config.properties;
 
 
 import org.springframework.boot.context.properties.ConfigurationProperties;

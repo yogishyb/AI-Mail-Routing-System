@@ -1,0 +1,182 @@
+[
+  {
+    "industry": "finance",
+    "department": "payments",
+    "priority": "HIGH",
+    "expectedQueue": "PAYMENTS",
+    "language": "en",
+    "subject": "Payment failed for invoice",
+    "body": "Hello team, payment deducted from account but invoice still showing unpaid. Please check."
+  },
+  {
+    "industry": "finance",
+    "department": "payments",
+    "priority": "HIGH",
+    "expectedQueue": "PAYMENTS",
+    "language": "bad-en",
+    "subject": "money gone but invoice no paid",
+    "body": "i make payment yesterday. money gone. invoice still pending. pls fix."
+  },
+  {
+    "industry": "banking",
+    "department": "payments",
+    "priority": "HIGH",
+    "expectedQueue": "PAYMENTS",
+    "language": "hinglish",
+    "subject": "payment issue",
+    "body": "kal payment kiya tha but abhi bhi invoice unpaid dikha raha hai"
+  },
+  {
+    "industry": "retail",
+    "department": "returns",
+    "priority": "MEDIUM",
+    "expectedQueue": "RETURNS",
+    "language": "en",
+    "subject": "Damaged laptop received",
+    "body": "Laptop screen is cracked. Need replacement."
+  },
+  {
+    "industry": "retail",
+    "department": "returns",
+    "priority": "HIGH",
+    "expectedQueue": "RETURNS",
+    "language": "bad-en",
+    "subject": "broken item",
+    "body": "item come broken. no working. replace pls."
+  },
+  {
+    "industry": "retail",
+    "department": "returns",
+    "priority": "HIGH",
+    "expectedQueue": "RETURNS",
+    "language": "hinglish",
+    "subject": "product kharab",
+    "body": "jo monitor aya hai wo properly on nahi ho raha"
+  },
+  {
+    "industry": "healthcare",
+    "department": "appointments",
+    "priority": "MEDIUM",
+    "expectedQueue": "APPOINTMENTS",
+    "language": "en",
+    "subject": "Appointment reschedule",
+    "body": "Can I move my appointment from Tuesday to Friday?"
+  },
+  {
+    "industry": "healthcare",
+    "department": "appointments",
+    "priority": "MEDIUM",
+    "expectedQueue": "APPOINTMENTS",
+    "language": "bad-en",
+    "subject": "change doctor visit",
+    "body": "tuesday not possible. can move friday."
+  },
+  {
+    "industry": "travel",
+    "department": "refunds",
+    "priority": "HIGH",
+    "expectedQueue": "REFUNDS",
+    "language": "en",
+    "subject": "Flight cancellation request",
+    "body": "Please process refund for cancelled booking."
+  },
+  {
+    "industry": "travel",
+    "department": "refunds",
+    "priority": "HIGH",
+    "expectedQueue": "REFUNDS",
+    "language": "es",
+    "subject": "cancelación de vuelo",
+    "body": "Necesito un reembolso por un vuelo cancelado."
+  },
+  {
+    "industry": "insurance",
+    "department": "claims",
+    "priority": "HIGH",
+    "expectedQueue": "CLAIMS",
+    "language": "fr",
+    "subject": "nouvelle réclamation",
+    "body": "Je souhaite déclarer un accident de voiture."
+  },
+  {
+    "industry": "telecom",
+    "department": "support",
+    "priority": "HIGH",
+    "expectedQueue": "NETWORK_SUPPORT",
+    "language": "en",
+    "subject": "Internet outage",
+    "body": "Entire office network is down."
+  },
+  {
+    "industry": "telecom",
+    "department": "support",
+    "priority": "HIGH",
+    "expectedQueue": "NETWORK_SUPPORT",
+    "language": "bad-en",
+    "subject": "wifi not work",
+    "body": "wifi down from morning. all office affected."
+  },
+  {
+    "industry": "technology",
+    "department": "support",
+    "priority": "HIGH",
+    "expectedQueue": "TECH_SUPPORT",
+    "language": "en",
+    "subject": "Unable to login",
+    "body": "Customer cannot login after password reset."
+  },
+  {
+    "industry": "technology",
+    "department": "support",
+    "priority": "HIGH",
+    "expectedQueue": "TECH_SUPPORT",
+    "language": "bad-en",
+    "subject": "urgent",
+    "body": "system not working"
+  },
+  {
+    "industry": "education",
+    "department": "admissions",
+    "priority": "LOW",
+    "expectedQueue": "ADMISSIONS",
+    "language": "en",
+    "subject": "Application status inquiry",
+    "body": "Student asking for admission status update."
+  },
+  {
+    "industry": "real-estate",
+    "department": "maintenance",
+    "priority": "HIGH",
+    "expectedQueue": "MAINTENANCE",
+    "language": "en",
+    "subject": "Water leakage complaint",
+    "body": "Tenant reported leak in apartment 4B."
+  },
+  {
+    "industry": "manufacturing",
+    "department": "procurement",
+    "priority": "HIGH",
+    "expectedQueue": "PROCUREMENT",
+    "language": "en",
+    "subject": "Raw material shortage",
+    "body": "Copper inventory below threshold."
+  },
+  {
+    "industry": "legal",
+    "department": "contracts",
+    "priority": "MEDIUM",
+    "expectedQueue": "LEGAL",
+    "language": "en",
+    "subject": "Contract review request",
+    "body": "Need legal review before signing supplier agreement."
+  },
+  {
+    "industry": "retail",
+    "department": "returns",
+    "priority": "HIGH",
+    "expectedQueue": "RETURNS",
+    "language": "angry",
+    "subject": "third time contacting you",
+    "body": "Nobody helping me. Product is broken. Refund immediately."
+  }
+]
